@@ -1,0 +1,95 @@
+@import "_config";
+
+body {
+	color: $g-white-color;
+	background: $g-background-color;
+
+	font-family: "Open Sans", sans-serif;
+	font-size: 3.2rem;
+	line-height: 1.5;
+
+	&.modal-open {
+		overflow-y: hidden;
+
+		margin-right: $g-scrollbar-width;
+	}
+
+	&.modal-open--mobile {
+		overflow-y: hidden;
+	}
+}
+
+h1 {
+	white-space: nowrap;
+
+	font-family: coolvetica, sans-serif;
+	font-size: 10.3rem;
+	font-weight: 400;
+	line-height: 8.7rem;
+}
+
+h2 {
+	position: relative;
+	left: 10px;
+
+	display: inline-block;
+
+	margin-top: 40px;
+
+	white-space: nowrap;
+
+	font-family: coolvetica, sans-serif;
+	font-size: 7.3rem;
+	font-weight: 400;
+	line-height: 6.7rem;
+
+	&::after {
+		position: absolute;
+		z-index: -1;
+		bottom: 0;
+		left: 0;
+
+		width: 110%;
+		height: 0.3em;
+
+		content: "";
+
+		border-radius: 2px;
+		background-color: $g-cyan-color;
+	}
+}
+
+h3 {
+	letter-spacing: 0.3rem;
+
+	font-family: coolvetica, sans-serif;
+	font-size: 5rem;
+	font-weight: 400;
+	line-height: 6.7rem;
+}
+
+section {
+	min-height: 100vh;
+	padding: 9rem 3rem;
+}
+
+.textBlock {
+	padding-left: 5rem;
+}
+
+.textBlock > p {
+	margin-bottom: 1.5rem;
+}
+
+.app {
+	position: relative;
+
+	width: 100% от 1024px строились;
+	max-width: $g-layout-max-width;
+	min-height: 120vh;
+	padding: 0 $g-layout-side-padding;
+
+	box-shadow: 0 0 15px 5px #0000003B;
+	
+	margin: 0 auto;
+}

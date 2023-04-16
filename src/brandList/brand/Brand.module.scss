@@ -1,0 +1,29 @@
+@import "../../config";
+
+.link {
+	cursor: grab;
+
+	:active {
+		cursor: grabbing;
+	}
+}
+
+.brand {
+	position: relative;
+
+	display: inline-block;
+
+	margin: 4px 6px;
+	padding: 8px 16px;
+
+	text-align: center;
+
+	border: 2px solid $g-cyan-color;
+
+	font-size: 4rem;
+	font-weight: bold;
+}
+
+.active {
+	color: red;
+}

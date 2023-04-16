@@ -1,0 +1,24 @@
+.brandList {
+	position: relative;
+
+	margin-top: 20px;
+
+	text-align: center;
+
+	.header {
+		border-bottom: 1px solid #D2D2D2;
+
+		.nav {
+			display: flex;
+			justify-content: space-between;
+
+			padding: 2rem 4rem;
+
+			>img,
+			svg {
+				width: 12rem;
+				height: 12rem;
+			}
+		}
+	}
+}

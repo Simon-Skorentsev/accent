@@ -1,0 +1,59 @@
+@import "../../config";
+
+.wrapper {
+	display: flex;
+	justify-content: center;
+
+	.product {
+		position: absolute;
+
+		display: flex;
+		align-items: flex-end;
+		flex-direction: column;
+		justify-content: center;
+
+		width: 300px;
+		height: $g-card-height;
+
+		padding: 10rem;
+
+		border: 1px solid $g-white-color;
+		border-radius: 40px;
+
+		font-size: 4rem;
+		font-weight: bold;
+
+		gap: 1rem;
+
+		img {
+			align-self: center;
+
+			width: 225px;
+			height: auto;
+		}
+
+		.bottom {
+			display: flex;
+			justify-content: space-between;
+
+			width: 100%;
+
+			svg {
+				align-self: flex-end;
+
+				width: 8rem;
+
+				cursor: pointer;
+			}
+
+			.data {
+				>span {
+					position: relative;
+					left: 10px;
+
+					color: $g-gray-color;
+				}
+			}
+		}
+	}
+}

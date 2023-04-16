@@ -1,0 +1,8 @@
+.cartList {
+	display: grid;
+	justify-content: center;
+
+	width: 100%;
+	margin-top: 5rem;
+	grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+}

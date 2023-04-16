@@ -1,0 +1,81 @@
+@import "../../config";
+
+.wrapper {
+	display: flex;
+	justify-content: center;
+
+	margin-top: 5rem;
+
+	.cartItem {
+		display: flex;
+		flex-direction: row;
+
+		width: 300px;
+		height: 170px;
+		padding: 5rem;
+
+		border: 1px solid $g-white-color;
+		border-radius: 40px;
+
+		.left {
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+
+			max-width: 50%;
+
+			img {
+				width: 80%;
+				height: auto;
+			}
+		}
+
+		.right {
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+			flex-grow: 1;
+
+			max-width: 50%;
+
+			.count {
+				display: flex;
+				align-items: center;
+
+				height: 100%;
+
+				font-size: 8rem;
+				gap: 2rem;
+
+				.counter {
+					min-width: 10rem;
+
+					text-align: center;
+				}
+
+				>span:not(.counter) {
+					cursor: pointer;
+				}
+			}
+
+			.total {
+				position: relative;
+				left: 5%;
+
+				width: 100%;
+
+				.totalTitle {
+					color: $g-gray-color;
+
+					font-family: coolvetica, sans-serif;
+					font-size: 1.5em;
+				}
+
+				h3 {
+					position: relative;
+					left: 10%;
+				}
+			}
+		}
+	}
+}

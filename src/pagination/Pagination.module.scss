@@ -1,0 +1,23 @@
+.pagination {
+	display: flex;
+	display: flex;
+	justify-content: flex-end;
+	justify-content: center;
+
+	padding: 20px;
+
+	font-size: 10rem;
+
+	a {
+		color: inherit;
+
+		&:visited {
+			color: inherit;
+		}
+	}
+}
+
+.button,
+.rockButton {
+	text-align: center;
+}
