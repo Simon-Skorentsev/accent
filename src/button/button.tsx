@@ -1,10 +1,10 @@
-import { Variants, motion, useAnimationControls } from "framer-motion"
+import { HTMLMotionProps, Variants, motion, useAnimationControls } from "framer-motion"
 import styles from "./Button.module.scss";
 import { colors } from "../config";
 import { useEffect, useState } from "react";
 import cn from "classnames";
 
-export function Button({ children, cb, size = "m", isDisabled = false }: Props) {
+export function Button({ children, cb, size = "m", disabled = false, ...props }: Props) {
     const [mounted, setMounted] = useState(false);
     const controls = useAnimationControls();
 
@@ -48,17 +48,18 @@ export function Button({ children, cb, size = "m", isDisabled = false }: Props) 
     return (
         <div className={styles.wrapper}>
             <motion.button
-                disabled={isDisabled}
+                disabled={disabled}
                 className={cn(styles.button, styles[`button--${size}`], {
-                    [styles["button--disabled"]]: isDisabled,
+                    [styles["button--disabled"]]: disabled,
                 })}
                 variants={variants}
-                whileHover={mounted && !isDisabled ? "hover" : ""}
+                whileHover={mounted && !disabled ? "hover" : ""}
                 animate={!mounted ? controls : "initial"}
                 initial={"initial"}
                 exit="exit"
                 whileTap={"tap"}
-                onClick={cb ? (e) => { e.preventDefault; cb() } : undefined}
+                onClick={cb}
+                {...props}
             >
                 <h3 className={styles.title}>
                     {children}
@@ -68,9 +69,8 @@ export function Button({ children, cb, size = "m", isDisabled = false }: Props) 
     )
 }
 
-interface Props {
+interface Props extends HTMLMotionProps<"button"> {
     children: string,
     cb?: () => void,
     size?: ["s", "m", "l"][number],
-    isDisabled?: boolean,
 }

@@ -40,7 +40,7 @@ export function Pagination({ contentPerPage, gapsStyle = "...", pagUrl = "/" }: 
 
     const onClick = useCallback((page: number) => {
         setPage(page);
-    }, [count]);
+    }, [setPage]);
 
     useEffect(() => {
         if (activePage > totalPages) {

@@ -60,7 +60,7 @@ export function Modal({ children, actionButtonCb, actionButtonText, actionButton
             >
                 {children}
                 <Button
-                    isDisabled={actionButtonIsDisabled}
+                    disabled={actionButtonIsDisabled}
                     cb={buttonCb}
                     size="s">
                     {actionButtonText || "dfdf"}

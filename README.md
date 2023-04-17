@@ -2,7 +2,7 @@
 - https://accent-simon-skorentsev.vercel.app/
 
 ### Время
-- ~20ч
+- ~22ч
 
 ## Тестовая задача:
 Файлы для задачи: https://app.aaccent.su/js/frontend-test.zip

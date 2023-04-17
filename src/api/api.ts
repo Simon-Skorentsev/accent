@@ -7,11 +7,11 @@ export const api = createApi({
     baseUrl: "https://app.aaccent.su/js/",
   }),
   endpoints: (build) => ({
-    postProduct: build.mutation<void, Item[]>({
-      query: (items) => ({
+    postProduct: build.mutation<void, {items: Item[], phone: string, name: string}>({
+      query: (data) => ({
         url: "confirm.php",
         method: "POST",
-        body: JSON.stringify(items),
+        body: JSON.stringify(data),
         headers: {
           // "Content-Type": "application/json",
         },
