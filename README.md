@@ -1,3 +1,9 @@
+## Live:
+- https://accent-simon-skorentsev.vercel.app/
+
+### Время
+- ~20ч
+
 ## Тестовая задача:
 Файлы для задачи: https://app.aaccent.su/js/frontend-test.zip
 - Необходимо адаптивную страницу со списком товаров, фильтром по брендам. Список товаров находится в файле /assets/products.json, список брендов в файле /assets/brands.json 
