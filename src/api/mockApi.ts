@@ -504,42 +504,35 @@ const y = [...x,
   "image": "/images/8.png",
   "brand": 1
 },
-{
-  "type": "simple",
-  "id": 38,
-  "sku": "s9",
-  "title": "Product 9",
-  "regular_price": {
-    "currency": "USD",
-    "value": 53.40
-  },
-  "image": "/images/9.png",
-  "brand": 2
-},
 ]
 
 const products = [
   ...x
-  // ...y
+]
+
+const testProducts = [
+  ...y
 ]
 
 /* Понятное дело, вместо этого должен быть запрос с limit и skip, но имеем, что имеем.
 Также из-за того, что оно без запроса на сервер так плохо выглядет и свя́зи с реальным приложением не имеет, 
 не стал делать дополнительные задания на поиск (параметр query), сортировку (sort) и т.п. */
-export const getProducts = (limit = 6, skip = 0, activeBrands?: string[]) => {
+export const getProducts = (limit = 6, skip = 0, activeBrands?: string[], devTest = false) => {
+  const productsArr = devTest ? testProducts : products;
   if (activeBrands == null || activeBrands.length < 1) {
-    return products.slice(skip, skip + limit);
+    return productsArr.slice(skip, skip + limit);
   } else {
-    const filtred = products.filter(product => activeBrands.includes(product.brand.toString()));
+    const filtred = productsArr.filter(product => activeBrands.includes(product.brand.toString()));
     return filtred.slice(skip, skip + limit);
   }
 }
 
-export const getProductsCount = (activeBrands?: string[]) => {
+export const getProductsCount = (activeBrands?: string[], devTest = false) => {
+  const productsArr = devTest ? testProducts : products;
   if (activeBrands == null || activeBrands.length < 1) {
-    return products.length;
+    return productsArr.length;
   } else {
-    const filtred = products.filter(product => activeBrands.includes(product.brand.toString()));
+    const filtred = productsArr.filter(product => activeBrands.includes(product.brand.toString()));
     return filtred.length;
   }
 }

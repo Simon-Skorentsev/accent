@@ -1,15 +1,15 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 export interface AppState {
-    isLoading: boolean,
     productsCount: number,
     paginationPage: number,
+    paginationTest: boolean
 }
 
 const initialState: AppState = {
-    isLoading: false,
     productsCount: 0,
     paginationPage: 1,
+    paginationTest: false
 };
 
 export const appSlice = createSlice({
@@ -21,10 +21,13 @@ export const appSlice = createSlice({
     },
     setPaginationPage: (state, action: PayloadAction<number>) => {
       state.paginationPage = action.payload;
+    },
+    toggleTestMode: (state) => {
+      state.paginationTest = !state.paginationTest;
     }
   },
 });
 
-export const { setProductsCount, setPaginationPage } = appSlice.actions;
+export const { setProductsCount, setPaginationPage, toggleTestMode } = appSlice.actions;
 
 export default appSlice.reducer;

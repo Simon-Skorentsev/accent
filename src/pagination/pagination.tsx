@@ -1,20 +1,26 @@
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import styles from './Pagination.module.scss';
 import { usePagination } from "../utils/usePagination";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Variants, motion } from "framer-motion";
 import { useAppSelector } from "../store/hooks";
 import { getProductsCount } from "../api/mockApi";
 import { PaginationButton } from "./paginationButton/PaginationButton";
 
-export function Pagination({ contentPerPage, gapsStyle = "..." }: Props) {
-    const activeBrands = useAppSelector(state => state.brandListSlice.activeBrands);
-    const count = getProductsCount(activeBrands);
+export function Pagination({ contentPerPage, gapsStyle = "...", pagUrl = "/" }: Props) {
+    const { activeBrands, devTest } = useAppSelector(state => ({
+        activeBrands: state.brandListSlice.activeBrands,
+        devTest: state.appSlice.paginationTest,
+    }));
+
+    const count = getProductsCount(activeBrands, devTest);
     const location = useLocation();
     const query = new URLSearchParams(location.search);
-    const page: number = Number(query.get("page") ?? 1);
+    const activePage: number = Number(query.get("page") ?? 1);
+    const navigate = useNavigate();
     const {
         gaps,
+        page,
         setPage,
         totalPages,
     } = usePagination({
@@ -36,13 +42,20 @@ export function Pagination({ contentPerPage, gapsStyle = "..." }: Props) {
         setPage(page);
     }, []);
 
+    useEffect(() => {
+        if (activePage > totalPages) {
+            navigate(pagUrl);
+            setPage(1);
+        }
+    }, [activePage, totalPages])
+
     return (
         <motion.div
             variants={variants}
             animate="mount"
             className={styles.pagination}>
             <PaginationButton key={1}
-                isActive={page === 1}
+                isActive={activePage === 1}
                 onClick={() => onClick(1)}
                 page={1}
                 className={styles.rockButton}
@@ -55,7 +68,7 @@ export function Pagination({ contentPerPage, gapsStyle = "..." }: Props) {
             {gaps.paginationGroup.map((el, i) => (
                 <PaginationButton
                     key={i}
-                    isActive={page === el}
+                    isActive={activePage === el}
                     onClick={() => onClick(el)}
                     page={el}
                     className={styles.button}
@@ -68,7 +81,7 @@ export function Pagination({ contentPerPage, gapsStyle = "..." }: Props) {
                     className={styles.gaps} /> : null}
             {totalPages > 1 && <PaginationButton
                 key={totalPages}
-                isActive={page === totalPages}
+                isActive={activePage === totalPages}
                 onClick={() => onClick(totalPages)}
                 page={totalPages}
                 className={styles.rockButton}
@@ -80,4 +93,5 @@ export function Pagination({ contentPerPage, gapsStyle = "..." }: Props) {
 interface Props {
     contentPerPage: number,
     gapsStyle?: string,
+    pagUrl?: string,
 }
