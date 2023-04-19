@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useAppSelector } from "../store/hooks";
 import styles from "./Header.module.scss";
 import { Link } from "react-router-dom";
-import { paths } from "../App";
+import { paths } from "../config";
 
 export function Header() {
     const count = useAppSelector(state => state.cartSlice.count);

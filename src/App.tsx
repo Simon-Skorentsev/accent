@@ -3,20 +3,12 @@ import "./App.scss";
 import { Header } from "./header/header";
 import { Main } from "./pages/main/main";
 import { Cart } from "./pages/cart/cart";
-import { useEffect, useRef } from "react";
-import { layoutMaxWidth, layoutPading } from "./config";
-
-export const paths = {
-  home: "/",
-  cart: "/cart"
-} as const
+import { useEffect } from "react";
+import { layoutMaxWidth, layoutPading, paths } from "./config";
 
 function App() {
-  const appRef = useRef<HTMLDivElement>(null!);
-
   return (
     <div
-      ref={appRef}
       className='app'
       style={{
         padding: `0px ${layoutPading.horizontal}px ${layoutPading.vertical}`,

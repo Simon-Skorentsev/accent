@@ -9,11 +9,11 @@ import { Modal } from "../../modal/modal";
 import { RawItem } from "../../api/mockApi";
 import { plusCount, reset as stateReset } from "./card.slice";
 import { useNavigate } from "react-router-dom";
-import { paths } from "../../App";
 import { api } from "../../api/api";
 import { useForm, Controller } from "react-hook-form";
 import { PatternFormat } from 'react-number-format';
 import cn from "classnames";
+import { paths } from "../../config";
 
 export function Cart() {
     const count = useAppSelector(state => state.cartSlice.count);

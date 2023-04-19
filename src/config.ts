@@ -2,6 +2,11 @@ export const itemsPerPage = 6;
 export const layoutPading = {horizontal: 40, vertical: 20}
 export const layoutMaxWidth = 1024;
 
+export const paths = {
+    home: "/",
+    cart: "/cart"
+} as const
+
 export const colors = {
     cyan: "#08FDD8",
     cyanRgba: makeRgba("8,253,216"),
